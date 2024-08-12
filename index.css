@@ -1,0 +1,144 @@
+:root {
+    --main-backgroud: hsl(233, 47%, 7%);
+    --card-background: hsl(244, 38%, 16%);
+    --soft-violet: hsl(277, 64%, 61%);
+    --white-main-h: hsl(0, 0%, 100%);
+    --white-main-p: hsla(0, 0%, 100%, 0.75);
+    --white-stats-h: hsla(0, 0%, 100%, 0.6);
+    --font-dexa: 'Lexend deca', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 15px;
+    font-family: var(--font-dexa);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--main-backgroud);
+}
+
+img {
+    height: 100%;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-inter);
+    font-weight: 700;
+}
+
+#mobile-image {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    height: 340px;
+    max-width: 860px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.left-cont {
+    width: 50%;
+    padding: 36px;
+}
+
+.left-cont h1 {
+    color: var(--white-main-h);
+}
+
+.left-cont h1 span {
+    color: var(--soft-violet);
+}
+
+.left-cont p {
+    font-family: var(--font-dexa);
+    line-height: 20px;
+    margin: 20px 0 40px 0;
+    color: var(--white-main-p);
+}
+
+.left-cont .stats-cont {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.left-cont .stats-cont .stat h2 {
+    color: var(--white-main-h);
+}
+
+.left-cont .stats-cont .stat p {
+    font-size: 14px;
+    color: var(--white-stats-h);
+    text-transform: uppercase;
+    margin: 8px 0 0 0;
+} 
+
+.right-cont {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+#desktop-image {
+    width: 100%;
+}
+
+.right-cont::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--soft-violet);
+    position: absolute;
+    top: 0;
+    left: 0; 
+    mix-blend-mode: multiply;
+}
+
+@media only screen and (max-width: 740px) {
+    #desktop-image {
+        display: none;
+    }
+
+    #mobile-image {
+        width: 100%;
+        height: 100%;
+        display: inline;
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+    }
+    .left-cont, .right-cont {
+        width: 100%;
+    }
+
+    .left-cont {
+        order: 2;
+    }
+
+    .right-cont {
+        order: 1;
+    }
+
+    .left-cont .stats-cont {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
